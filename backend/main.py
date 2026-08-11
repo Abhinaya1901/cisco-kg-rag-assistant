@@ -1,6 +1,8 @@
 import os
 os.environ['USE_TF'] = '0'
 os.environ['TOKENIZERS_PARALLELISM'] = 'false'
+os.environ['OMP_NUM_THREADS'] = '1'
+os.environ['TORCH_NUM_THREADS'] = '1'
 
 import json
 import re

@@ -1,0 +1,134 @@
+[
+  {
+    "id": "S01",
+    "set": "synthetic",
+    "category": "synthetic",
+    "question": "What is the effect of setting the ROMMON variable SINGLE_SUP_CHASSIS to 0 on the power budget mode of a C9600 chassis?",
+    "reference": "Setting SINGLE_SUP_CHASSIS to 0 configures the power budget mode as Dual Sup, which automatically reserves power for a second supervisor even when no second supervisor is installed.",
+    "gold_chunk_id": "220196-troubleshoot-power-supplies-on-catalyst.html_4",
+    "meta": {
+      "url": "https://www.cisco.com/c/en/us/support/docs/switches/nexus-9000-series-switches/220196-troubleshoot-power-supplies-on-catalyst.html"
+    }
+  },
+  {
+    "id": "S02",
+    "set": "synthetic",
+    "category": "synthetic",
+    "question": "What does the %ACL_ERRMSG-4-UNLOADED syslog message indicate and what should be done?",
+    "reference": "The %ACL_ERRMSG-4-UNLOADED message means the ACL was not programmed in hardware and traffic can be dropped. Investigate TCAM scale and, if beyond scale, redesign the ACLs.",
+    "gold_chunk_id": "217703-understand-hardware-resources-on-catalys.html_8",
+    "meta": {
+      "url": "https://www.cisco.com/c/en/us/support/docs/switches/catalyst-9500-series-switches/217703-understand-hardware-resources-on-catalys.html"
+    }
+  },
+  {
+    "id": "S03",
+    "set": "synthetic",
+    "category": "synthetic",
+    "question": "What are the current reporting settings for the Cisco Catalyst 9300 device, including first report requirement, reporting frequency, report on change, and the next ACK deadline?",
+    "reference": "The device is configured with a first report requirement of 0 days, a reporting frequency of 0 days, and a report on change of 0 days. The next ACK deadline is set for Dec\u00a009\u00a009:09:36\u00a02020\u00a0PST.",
+    "gold_chunk_id": "216520-migrate-catalyst-license-to-smart-licens.html_16",
+    "meta": {
+      "url": "https://www.cisco.com/c/en/us/support/docs/switches/catalyst-9300-series-switches/216520-migrate-catalyst-license-to-smart-licens.html"
+    }
+  },
+  {
+    "id": "S04",
+    "set": "synthetic",
+    "category": "synthetic",
+    "question": "How can I restart the MST protocol migration process on a Catalyst 9300 when the device stops receiving IEEE 802.1D BPDUs?",
+    "reference": "Restart the protocol migration process by enabling MST on the device and, if using the interface command, specifying the MST interface. The device will revert to MSTP mode and the migration process will restart, forcing renegotiation with neighboring devices.",
+    "gold_chunk_id": "configuring_multiple_spanning_tree_protocol.html_25",
+    "meta": {
+      "url": "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/software/release/26-x/configuration_guide/lyr2/b_26x_lyr2_9300_cg/configuring_multiple_spanning_tree_protocol.html"
+    }
+  },
+  {
+    "id": "S05",
+    "set": "synthetic",
+    "category": "synthetic",
+    "question": "Which file in the flash:/ directory appears to indicate a possible memory leak?",
+    "reference": "The file named threshold_lowmem_info_20230330-195051-UTC in the flash:/ directory may indicate a memory leak.",
+    "gold_chunk_id": "220656-troubleshoot-unexpected-reloads-on-catal.html_7",
+    "meta": {
+      "url": "https://www.cisco.com/c/en/us/support/docs/switches/catalyst-9300-switch/220656-troubleshoot-unexpected-reloads-on-catal.html"
+    }
+  },
+  {
+    "id": "S06",
+    "set": "synthetic",
+    "category": "synthetic",
+    "question": "What is the maximum number of ARP packets from the same source IP that can be processed in a five\u2011second window on Cisco IOS XE 17.3.1, and how does this limit change in later releases?",
+    "reference": "On Cisco IOS XE Amsterdam 17.3.1, a maximum of 50 ARP packets from the same source IP are processed in a five\u2011second window. In IOS XE 17.14.1 this limit is increased to 100 ARP packets per source IP.",
+    "gold_chunk_id": "configuring_sisf_based_device_tracking.html_4",
+    "meta": {
+      "url": "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/software/release/26-x/configuration_guide/sec/b_26x_sec_9300_cg/configuring_sisf_based_device_tracking.html"
+    }
+  },
+  {
+    "id": "S07",
+    "set": "synthetic",
+    "category": "synthetic",
+    "question": "What parameters define an ERSPAN source session on a Cisco Catalyst 9300?",
+    "reference": "An ERSPAN source session is defined by a session ID, an ERSPAN flow ID, a list of source ports or source VLANs that are monitored, optional attributes such as IP type of service (ToS) and IP Time to Live (TTL) for the GRE envelope, and the destination and origin IP addresses used as the destination and source IP addresses of the GRE envelope for the captured traffic.",
+    "gold_chunk_id": "configuring_erspan.html_2",
+    "meta": {
+      "url": "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/software/release/26-x/configuration_guide/nmgmt/b_26x_nmgmt_9300_cg/configuring_erspan.html"
+    }
+  },
+  {
+    "id": "S08",
+    "set": "synthetic",
+    "category": "synthetic",
+    "question": "What are the acceptable levels of Optical Return Loss (ORL) for different polish types of SFP connectors, and how can choosing the wrong polish type damage a transceiver?",
+    "reference": "The acceptable ORL levels are \u201330\u202fdB for Flat, \u201335\u202fdB for Physical Contact (PC), \u201355\u202fdB for Ultra\u2011Physical Contact (UPC), and \u201365\u202fdB for Angled Physical Contact (APC). Using a PC cable with a transceiver that only supports UPC exposes the transceiver to 100 times greater back\u2011reflection, which can damage the transceiver due to the higher ORL level.",
+    "gold_chunk_id": "222738-troubleshoot-fiber-links-on-catalyst-900.html_2",
+    "meta": {
+      "url": "https://www.cisco.com/c/en/us/support/docs/switches/catalyst-9200-switch-stack/222738-troubleshoot-fiber-links-on-catalyst-900.html"
+    }
+  },
+  {
+    "id": "S09",
+    "set": "synthetic",
+    "category": "synthetic",
+    "question": "What is the software version of the MCU on Switch 1?",
+    "reference": "The MCU software version is 0.109.",
+    "gold_chunk_id": "interface_and_hardware_commands.html_19",
+    "meta": {
+      "url": "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/software/release/26-x/command_reference/b_26x_9300_cr/interface_and_hardware_commands.html"
+    }
+  },
+  {
+    "id": "S10",
+    "set": "synthetic",
+    "category": "synthetic",
+    "question": "What does the 'T' flag indicate in the IP Multicast Routing Table output on a Cisco Catalyst 9300?",
+    "reference": "The 'T' flag indicates that the SPT (Shortest Path Tree) bit is set for the source-group pair.",
+    "gold_chunk_id": "217170-troubleshoot-evpn-vxlan-trm-on-catalyst.html_27",
+    "meta": {
+      "url": "https://www.cisco.com/c/en/us/support/docs/switches/catalyst-9500-series-switches/217170-troubleshoot-evpn-vxlan-trm-on-catalyst.html"
+    }
+  },
+  {
+    "id": "S11",
+    "set": "synthetic",
+    "category": "synthetic",
+    "question": "Which Catalyst 9000 switch models and software versions are covered for mac flapping notifications in this guide?",
+    "reference": "The guide covers Catalyst 9200, 9300, 9500, 9400, and 9600 switches, and it can also be used with Catalyst 3650/3850 series switches running Cisco IOS\u00ae\u202fXE\u202f16.x.",
+    "gold_chunk_id": "223094-understand-mac-flapping-notifications.html_0",
+    "meta": {
+      "url": "https://www.cisco.com/c/en/us/support/docs/switches/catalyst-9300-series-switches/223094-understand-mac-flapping-notifications.html"
+    }
+  },
+  {
+    "id": "S12",
+    "set": "synthetic",
+    "category": "synthetic",
+    "question": "Can I mix a 350W AC power supply with a 715W DC power supply on a Cisco Catalyst 9300 switch?",
+    "reference": "Yes, you can combine a 350W AC power supply with a 715W DC power supply on a standalone switch or within a stack.",
+    "gold_chunk_id": "217759-configure-and-troubleshoot-stackpower-an.html_3",
+    "meta": {
+      "url": "https://www.cisco.com/c/en/us/support/docs/switches/catalyst-9300-switch/217759-configure-and-troubleshoot-stackpower-an.html"
+    }
+  }
+]

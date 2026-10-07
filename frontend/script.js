@@ -39,7 +39,7 @@ function removeTypingIndicator() {
 function addBotMessage(answer, graphFacts, numChunks) {
   const msg = document.createElement('div');
   msg.className = 'msg bot';
-  const formatted = answer.split('\n\n').map(p => `<p>${escapeHtml(p).replace(/\`([^\`]+)\`/g, '<code>$1</code>')}</p>`).join('');
+  const formatted = (typeof marked !== "undefined") ? marked.parse(answer) : escapeHtml(answer);
   const factsHtml = graphFacts.length ? graphFacts.map(f => `<div class="fact">${escapeHtml(f)}</div>`).join('') : '<div class="fact">No direct graph relationships used</div>';
   msg.innerHTML = `<div class="msg-avatar">C9</div><div class="msg-content"><div class="msg-bubble">${formatted}</div><div class="sources-toggle" onclick="this.nextElementSibling.classList.toggle('open')">📊 ${numChunks} document chunks · ${graphFacts.length} graph facts used</div><div class="sources-panel">${factsHtml}</div></div>`;
   messagesEl.appendChild(msg);
@@ -64,7 +64,7 @@ chatForm.addEventListener('submit', async (e) => {
   addTypingIndicator();
 
   try {
-    const res = await fetch('/api/chat', {
+    const res = await fetch('http://localhost:8000/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ question })

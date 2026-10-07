@@ -16,6 +16,8 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 app = FastAPI(title="Cisco Catalyst 9300 Assistant")
+from fastapi.middleware.cors import CORSMiddleware
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
 print("Loading pipeline...")
 embed_model = SentenceTransformer('all-MiniLM-L6-v2')
@@ -36,7 +38,7 @@ JSON list:"""
 def extract_question_entities(question):
     try:
         response = groq_client.chat.completions.create(
-            model='llama-3.3-70b-versatile',
+            model='openai/gpt-oss-120b',
             messages=[{'role': 'user', 'content': ENTITY_PROMPT.format(question=question)}],
             temperature=0
         )
@@ -94,10 +96,10 @@ KNOWLEDGE GRAPH RELATIONSHIPS:
 
 Question: {question}
 
-Provide a complete, accurate answer using both sources above:"""
+Answer in plain conversational paragraphs, like you are explaining it to a colleague out loud. Do NOT use markdown tables, headers, bullet-point checklists, or horizontal rule dividers (---). You may use short inline code formatting for actual CLI commands (like `configure terminal`), but otherwise write in full sentences and short paragraphs only. Base your answer on both sources above:"""
 
     response = groq_client.chat.completions.create(
-        model='llama-3.3-70b-versatile',
+        model='openai/gpt-oss-120b',
         messages=[{'role': 'user', 'content': prompt}]
     )
     answer = response.choices[0].message.content

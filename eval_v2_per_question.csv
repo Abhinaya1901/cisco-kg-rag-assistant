@@ -1,0 +1,31 @@
+id,set,category,question,num_graph_facts,p_at_5,r_at_5,mrr,ndcg_at_5,hit_at_5,vector_faith,vector_rel,vector_corr,vector_claims,vector_unsupported,vector_tokens,kg_faith,kg_rel,kg_corr,kg_claims,kg_unsupported,kg_tokens,hybrid_faith,hybrid_rel,hybrid_corr,hybrid_claims,hybrid_unsupported,hybrid_tokens
+H01,hand,factual,What command enables privileged EXEC mode?,4,0.6,0.75,1.0,0.75369761125927,1.0,5,5,,1,0,1176,5,5,,1,0,221,5,5,,4,0,1309
+H02,hand,factual,What is the default VTP mode?,1,0.0,0.0,0.16666666666666666,0.0,0.0,1,5,,1,1,1225,1,1,,1,1,208,1,5,,2,2,1315
+H03,hand,factual,How many access ports can a Catalyst 9300 stack support?,3,0.2,1.0,0.2,0.38685280723454163,1.0,5,5,,1,0,1684,5,5,,1,0,225,5,5,,2,0,1790
+H04,hand,factual,What command sets an interface to trunk mode?,7,0.2,1.0,0.25,0.43067655807339306,1.0,5,5,,1,0,1183,1,1,,1,1,247,5,5,,9,0,1442
+H05,hand,factual,What port speeds does the Catalyst 9300 support?,4,0.4,0.6666666666666666,0.5,0.4776237035032179,1.0,5,5,,7,0,1845,5,5,,1,0,233,5,5,,4,0,1913
+H06,hand,factual,What command enters global configuration mode?,8,0.2,0.5,0.2,0.23719771276929622,1.0,5,5,,1,0,939,5,5,,1,0,264,5,5,,4,0,1119
+H07,hand,relational,What do I need to configure before setting up a trunk port?,2,0.2,1.0,1.0,1.0,1.0,5,5,,6,0,1455,1,3,,1,1,239,5,5,,6,0,1532
+H08,hand,relational,What does VLAN configuration depend on?,4,0.8,0.8,1.0,0.830419897363192,1.0,5,5,,12,0,1922,5,5,,1,0,262,5,5,,5,0,1511
+H09,hand,relational,"If I want to use many VLANs without enabling routing, what feature should I configure and why?",3,0.2,1.0,0.5,0.6309297535714575,1.0,5,5,,6,0,1336,3,5,,3,2,350,5,5,,5,0,1379
+H10,hand,relational,What must I check before upgrading the ROMMON on a switch stack?,4,0.2,0.5,0.2,0.23719771276929622,1.0,5,5,,6,0,1542,5,5,,1,0,360,3,5,,14,4,1724
+H11,hand,relational,What's required before Spanning Tree Protocol can use PVST mode?,3,0.2,1.0,0.5,0.6309297535714575,1.0,5,5,,5,0,1481,1,3,,1,1,296,5,5,,5,0,1496
+H12,hand,relational,What are the prerequisites for configuring EtherChannel between two switches?,10,0.6,0.6,1.0,0.6992148198508501,1.0,3,5,,14,1,1670,5,5,,3,0,482,3,5,,9,2,1677
+H13,hand,relational,"If I enable 802.1x on a port, what happens if I try to change it to trunk mode?",8,0.2,1.0,1.0,1.0,1.0,5,5,,5,0,1174,5,1,,1,0,322,5,5,,7,0,1394
+H14,hand,relational,What feature must be enabled to support more than the default number of VLANs?,0,0.2,1.0,0.3333333333333333,0.5,1.0,1,2,,2,2,1381,1,1,,1,1,177,3,5,,5,2,1406
+H15,hand,troubleshooting,"My switch keeps reloading unexpectedly in a stack — what should I check, and what's the relevant command?",6,0.8,0.8,1.0,0.8539316501572937,1.0,5,5,,12,0,1845,5,1,,1,0,250,5,5,,11,0,1945
+H16,hand,troubleshooting,What known issues exist in the current release notes related to VLAN or trunking?,5,0.0,,0.0,0.0,0.0,3,5,,5,2,1628,1,1,,1,1,258,5,5,,5,0,1925
+H17,hand,troubleshooting,"Which command would I use to verify VLAN configuration, and what does the configuration guide say I should check first?",3,0.0,,0.0,0.0,0.0,3,5,,7,3,1466,1,1,,1,1,229,5,5,,5,0,1483
+H18,hand,troubleshooting,What hardware limitation from the datasheet should I be aware of when configuring stacking?,3,0.2,0.5,1.0,0.6131471927654584,1.0,5,5,,5,0,1714,5,5,,2,0,272,3,5,,10,7,1923
+S01,synthetic,synthetic,What is the effect of setting the ROMMON variable SINGLE_SUP_CHASSIS to 0 on the power budget mode of a C9600 chassis?,9,0.2,1.0,1.0,1.0,1.0,5,5,5,3,0,1705,1,1,1,1,1,284,3,5,5,5,1,1914
+S02,synthetic,synthetic,What does the %ACL_ERRMSG-4-UNLOADED syslog message indicate and what should be done?,4,0.2,1.0,1.0,1.0,1.0,3,5,5,6,1,1874,1,1,1,1,1,241,5,5,5,5,0,1865
+S03,synthetic,synthetic,"What are the current reporting settings for the Cisco Catalyst 9300 device, including first report requirement, reporting frequency, report on change, and the next ACK deadline?",8,0.2,1.0,0.3333333333333333,0.5,1.0,5,2,1,14,0,2056,1,1,1,1,1,306,3,3,3,6,3,2192
+S04,synthetic,synthetic,How can I restart the MST protocol migration process on a Catalyst 9300 when the device stops receiving IEEE 802.1D BPDUs?,7,0.2,1.0,1.0,1.0,1.0,5,5,3,6,0,1293,1,1,1,1,1,280,3,5,5,12,6,1625
+S05,synthetic,synthetic,Which file in the flash:/ directory appears to indicate a possible memory leak?,4,0.2,1.0,1.0,1.0,1.0,5,5,5,1,0,1748,1,1,1,1,1,226,5,5,5,5,0,1848
+S06,synthetic,synthetic,"What is the maximum number of ARP packets from the same source IP that can be processed in a five‑second window on Cisco IOS XE 17.3.1, and how does this limit change in later releases?",8,0.2,1.0,1.0,1.0,1.0,5,5,5,4,0,1402,1,1,1,1,1,297,5,5,5,6,0,1501
+S07,synthetic,synthetic,What parameters define an ERSPAN source session on a Cisco Catalyst 9300?,9,0.2,1.0,1.0,1.0,1.0,5,5,5,7,0,1608,5,1,1,3,0,483,5,5,5,6,0,1742
+S08,synthetic,synthetic,"What are the acceptable levels of Optical Return Loss (ORL) for different polish types of SFP connectors, and how can choosing the wrong polish type damage a transceiver?",3,0.2,1.0,1.0,1.0,1.0,3,5,5,12,5,1904,1,1,1,1,1,217,3,5,5,10,6,1919
+S09,synthetic,synthetic,What is the software version of the MCU on Switch 1?,3,0.0,0.0,0.0,0.0,0.0,5,1,1,1,0,1181,1,1,1,1,1,197,3,3,1,6,4,1436
+S10,synthetic,synthetic,What does the 'T' flag indicate in the IP Multicast Routing Table output on a Cisco Catalyst 9300?,4,0.0,0.0,0.125,0.0,0.0,5,5,5,2,0,1703,1,1,1,1,1,250,5,5,5,4,0,1870
+S11,synthetic,synthetic,Which Catalyst 9000 switch models and software versions are covered for mac flapping notifications in this guide?,7,0.2,1.0,1.0,1.0,1.0,5,5,5,5,0,1202,1,1,1,1,1,328,3,5,5,5,2,1191
+S12,synthetic,synthetic,Can I mix a 350W AC power supply with a 715W DC power supply on a Cisco Catalyst 9300 switch?,6,0.2,1.0,0.5,0.6309297535714575,1.0,5,5,5,3,0,1538,1,1,1,1,1,255,4,5,5,5,1,1730

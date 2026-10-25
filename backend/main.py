@@ -10,13 +10,15 @@ import networkx as nx
 from sentence_transformers import SentenceTransformer
 import chromadb
 from groq import Groq
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
+MODEL = 'openai/gpt-oss-120b'   # generator and question-entity extractor (Groq)
+
 app = FastAPI(title="Cisco Catalyst 9300 Assistant")
-from fastapi.middleware.cors import CORSMiddleware
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
 print("Loading pipeline...")
@@ -38,7 +40,7 @@ JSON list:"""
 def extract_question_entities(question):
     try:
         response = groq_client.chat.completions.create(
-            model='openai/gpt-oss-120b',
+            model=MODEL,
             messages=[{'role': 'user', 'content': ENTITY_PROMPT.format(question=question)}],
             temperature=0
         )
@@ -72,9 +74,15 @@ def get_graph_facts(question_entities, graph, max_facts=8):
 class ChatRequest(BaseModel):
     question: str
 
+@app.get("/api/health")
+def health():
+    return {"status": "ok", "graph_nodes": G.number_of_nodes(), "graph_edges": G.number_of_edges()}
+
 @app.post("/api/chat")
 def chat(req: ChatRequest):
-    question = req.question
+    question = req.question.strip()
+    if not question:
+        raise HTTPException(status_code=400, detail="Question is empty.")
 
     query_embedding = embed_model.encode([question]).tolist()
     results = collection.query(query_embeddings=query_embedding, n_results=5)
@@ -86,7 +94,7 @@ def chat(req: ChatRequest):
     chunk_context = "\n\n---\n\n".join(retrieved_chunks)
     graph_context = "\n".join(graph_facts) if graph_facts else "No direct graph relationships found."
 
-    prompt = f"""You are a network engineering assistant. Answer the question using the context below.
+    prompt = f"""You are a network engineering assistant for Cisco Catalyst 9300 switches. Answer the question using ONLY the document excerpts and knowledge graph relationships below. If they do not contain the answer, say so clearly instead of guessing. Do not use outside knowledge.
 
 DOCUMENT EXCERPTS:
 {chunk_context}
@@ -96,13 +104,16 @@ KNOWLEDGE GRAPH RELATIONSHIPS:
 
 Question: {question}
 
-Answer in plain conversational paragraphs, like you are explaining it to a colleague out loud. Do NOT use markdown tables, headers, bullet-point checklists, or horizontal rule dividers (---). You may use short inline code formatting for actual CLI commands (like `configure terminal`), but otherwise write in full sentences and short paragraphs only. Base your answer on both sources above:"""
+Provide a complete, accurate answer using both sources above:"""
 
-    response = groq_client.chat.completions.create(
-        model='openai/gpt-oss-120b',
-        messages=[{'role': 'user', 'content': prompt}]
-    )
-    answer = response.choices[0].message.content
+    try:
+        response = groq_client.chat.completions.create(
+            model=MODEL,
+            messages=[{'role': 'user', 'content': prompt}]
+        )
+    except Exception as e:
+        raise HTTPException(status_code=502, detail=f"Language model call failed: {type(e).__name__}")
+    answer = response.choices[0].message.content or ""
 
     return {
         "answer": answer,
@@ -111,4 +122,4 @@ Answer in plain conversational paragraphs, like you are explaining it to a colle
     }
 
 # Serve the frontend
-app.mount("/", StaticFiles(directory="../frontend", html=True), name="frontend")
+app.mount("/", StaticFiles(directory=os.path.join(BASE_DIR, "..", "frontend"), html=True), name="frontend")

@@ -4,8 +4,6 @@ A question-answering assistant for technical documentation. It combines **semant
 
 The repository contains the working web application and the evaluation scripts that were used to test it, including a controlled comparison of *graph versus prompt* and a second study on 3GPP Release 18 specifications with the TeleQnA benchmark.
 
-> Project: SWE3004 Software Design and Development Project, M.Tech Software Engineering, VIT Vellore.
-> Author: Kolla Srinivasan Abhinaya (22MIS0223). Guide: Dr. C. Vanmathi.
 
 ---
 
